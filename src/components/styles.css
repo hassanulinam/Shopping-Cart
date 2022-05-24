@@ -1,0 +1,34 @@
+.filters--bgcontainer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 10px;
+  height: 86vh;
+}
+
+.filters--bgcontainer > span {
+  padding-bottom: 20px;
+}
+
+.filters--title {
+  font-size: 30px;
+}
+
+.product-cards--list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.home-page--bgcontainer {
+  display: flex;
+}
+
+.product-card--bgcontainer {
+  width: 50%;
+  max-width: 300px;
+  margin: 10px;
+}
