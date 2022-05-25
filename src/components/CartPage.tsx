@@ -1,6 +1,7 @@
-import React from "react";
+import { CartState } from "../context/AppContext";
 
 const CartPage = () => {
+  const {} = CartState();
   return <div>CartPage</div>;
 };
 
