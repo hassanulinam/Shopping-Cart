@@ -11,13 +11,12 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartState } from "../context/AppContext";
 import { AiFillDelete } from "react-icons/ai";
-import { cartActions } from "../context/Reducers";
 import "./styles.css";
 
 const Header = () => {
   const {
     state: { cart },
-    dispatch,
+    removeFromCart,
   } = CartState();
 
   return (
@@ -57,12 +56,7 @@ const Header = () => {
                       <AiFillDelete
                         fontSize="20px"
                         style={{ cursor: "pointer" }}
-                        onClick={() =>
-                          dispatch({
-                            type: cartActions.removeFromCart,
-                            payload: { id: prod.id },
-                          })
-                        }
+                        onClick={() => removeFromCart(prod.id)}
                       />
                     </span>
                   ))}

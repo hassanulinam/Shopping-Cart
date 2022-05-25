@@ -53,3 +53,13 @@
   padding: 0 20px;
   flex-direction: column;
 }
+
+.d-flex {
+  width: 100%;
+  display: flex;
+}
+
+.cart-products--list {
+  flex: 1;
+  padding: 16px 10px;
+}
