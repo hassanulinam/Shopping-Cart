@@ -1,6 +1,6 @@
 import { Button, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
 import { AiFillDelete } from "react-icons/ai";
-import { CartState } from "../context/AppContext";
+import { CartState } from "../context/CartContextProvider";
 import Rating from "./Rating";
 import "./styles.css";
 
@@ -29,9 +29,9 @@ const CartPage = () => {
                   <Col md={1}>
                     <span>${prod.price}</span>
                   </Col>
-                  <Col md={2}>
+                  <Col md={3}>
                     <span>
-                      <Rating rating={prod.ratings} />
+                      <Rating rating={prod.ratings} fontSize="16px" />
                     </span>
                   </Col>
                   <Col md={2}>

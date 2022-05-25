@@ -1,6 +1,11 @@
 import { createContext, useContext, useReducer } from "react";
 import { faker } from "@faker-js/faker";
-import { cartActions, cartReducer, TypeOfReducerAction } from "./Reducers";
+import {
+  cartActions,
+  cartReducer,
+  filterActions,
+  productsFilterReducer,
+} from "./Reducers";
 
 export type TypeOfProduct = {
   id: string;
@@ -43,7 +48,9 @@ const CartContext = createContext<TypeofCartContext>({
 });
 faker.seed(50);
 
-const AppContext = ({ children }: { children: JSX.Element }) => {
+// ---------------- Context Implementation -----------------
+
+const CartContextProvider = ({ children }: { children: JSX.Element }) => {
   const products = [...Array(30)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
@@ -58,21 +65,18 @@ const AppContext = ({ children }: { children: JSX.Element }) => {
     products: products,
     cart: [],
   });
-
   const addToCart = (product: TypeOfProduct) => {
     dispatch({
       type: cartActions.addToCart,
       payload: product,
     });
   };
-
   const removeFromCart = (productId: string) => {
     dispatch({
       type: cartActions.removeFromCart,
       payload: { id: productId },
     });
   };
-
   const changeQuantity = (productId: string, quantity: number) => {
     dispatch({
       type: cartActions.changeQuantity,
@@ -89,6 +93,6 @@ const AppContext = ({ children }: { children: JSX.Element }) => {
   );
 };
 
-export default AppContext;
+export default CartContextProvider;
 
 export const CartState = () => useContext(CartContext);

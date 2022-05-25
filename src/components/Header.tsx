@@ -9,15 +9,21 @@ import {
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
-import { CartState } from "../context/AppContext";
+import { CartState } from "../context/CartContextProvider";
 import { AiFillDelete } from "react-icons/ai";
 import "./styles.css";
+import { FiltersState } from "../context/FiltersContextProvider";
 
 const Header = () => {
   const {
     state: { cart },
     removeFromCart,
   } = CartState();
+
+  const {
+    filters: { searchQuery },
+    changeSearchQueryFilter,
+  } = FiltersState();
 
   return (
     <Navbar bg="dark" variant="dark" style={{ height: 80 }}>
@@ -30,6 +36,10 @@ const Header = () => {
             style={{ width: 400 }}
             placeholder="Search Products..."
             className="m-auto"
+            onChange={(e) =>
+              changeSearchQueryFilter(e.target.value.toLowerCase())
+            }
+            value={searchQuery}
           />
         </Navbar.Text>
         <Nav>

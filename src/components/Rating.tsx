@@ -3,9 +3,10 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 type TypeofRatingProps = {
   rating: number;
   onClickingStar?: (i: number) => void;
+  fontSize: string;
 };
 
-const Rating = ({ rating, onClickingStar }: TypeofRatingProps) => {
+const Rating = ({ rating, onClickingStar, fontSize }: TypeofRatingProps) => {
   return (
     <div>
       {[...Array(5)].map((_, i) => (
@@ -15,9 +16,9 @@ const Rating = ({ rating, onClickingStar }: TypeofRatingProps) => {
           style={{ cursor: "pointer" }}
         >
           {rating > i ? (
-            <AiFillStar fontSize="20px" />
+            <AiFillStar fontSize={fontSize} />
           ) : (
-            <AiOutlineStar fontSize="20px" />
+            <AiOutlineStar fontSize={fontSize} />
           )}
         </span>
       ))}
