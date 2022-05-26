@@ -15,11 +15,12 @@ const Home = () => {
     filters: { sortBy, byStock, fastDelivery, searchQuery, rating },
   } = FiltersState();
   const transfromProductsWithFilters = () => {
-    let fltProducts = products;
-    if (sortBy)
+    let fltProducts = [...products];
+    if (sortBy) {
       fltProducts.sort((prod1, prod2) =>
         sortBy === "ASC" ? prod1.price - prod2.price : prod2.price - prod1.price
       );
+    }
     if (!byStock) fltProducts = fltProducts.filter((p) => p.inStock);
     if (fastDelivery) fltProducts = fltProducts.filter((p) => p.fastDelivery);
     if (rating) fltProducts = fltProducts.filter((p) => p.ratings >= rating);

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { FiltersState } from "../context/FiltersContextProvider";
 import Rating from "./Rating";
@@ -23,6 +22,8 @@ const Filters = () => {
           name="group1"
           type="radio"
           id={"inline-1"}
+          onChange={() => changeSortByFilter("ASC")}
+          checked={sortBy === "ASC"}
         />
       </span>
       <span>
@@ -32,6 +33,8 @@ const Filters = () => {
           name="group1"
           type="radio"
           id={"inline-2"}
+          onChange={() => changeSortByFilter("DESC")}
+          checked={sortBy === "DESC"}
         />
       </span>
       <span>

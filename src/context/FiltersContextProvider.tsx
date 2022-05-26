@@ -2,7 +2,7 @@ import { createContext, useContext, useReducer } from "react";
 import { filterActions, productsFilterReducer } from "./Reducers";
 
 export const initialProductsFilterState = {
-  sortBy: "",
+  sortBy: undefined,
   byStock: false,
   fastDelivery: false,
   searchQuery: "",
@@ -10,7 +10,7 @@ export const initialProductsFilterState = {
 };
 
 export type TypeOfFiltersState = {
-  sortBy: "ASC" | "DESC" | string;
+  sortBy: "ASC" | "DESC" | undefined;
   byStock: boolean;
   fastDelivery: boolean;
   searchQuery: string;
